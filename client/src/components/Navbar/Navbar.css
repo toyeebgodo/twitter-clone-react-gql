@@ -1,0 +1,53 @@
+
+.ui.fixed.menu {
+  border-top: 0px solid rgba(34,36,38,.15) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 0 0 !important;
+}
+
+.ui.container {
+  position: relative;
+  right: 31px;
+}
+
+.ui.item.isactive {
+  border-bottom: 2px solid #1da1f2;
+  transition: all .15s ease-in-out;
+}
+
+.item-text {
+  color: #66757f;
+  font-weight: bold;
+  font-size: 12;
+  padding: 10px 0px 0 7px;
+}
+.item-text.isactive {
+  color: #1da1f2;
+}
+
+.fa.fa-list {
+  color: #1da1f2;
+  padding: 10px 0 0 0px;
+}
+
+.fa.fa-bell-o {
+  color: #66757f;
+  padding: 10px 0 0 0px;
+}
+
+.fa.fa-envelope-o {
+  color: #66757f;
+  padding: 10px 0 0 0px;
+
+}
+.fa.fa-twitter {
+  color: #1da1f2;
+  position: absolute;
+  left: 50%;
+  color: #1da1f2;
+  cursor: pointer;
+  margin-top: 12px;
+}

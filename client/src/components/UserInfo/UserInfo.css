@@ -1,0 +1,88 @@
+
+.userinfo-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 160px;
+}
+
+.user-banner {
+  background-size: 100%;
+  height: 95px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  background-position: 0 50%;
+  width: 100%;
+  padding: 0;
+  margin-top: 0px;
+}
+
+.user-avatar {
+  border: 3px solid #fff;
+  border-radius: 50%;
+  height: 72px;
+  width: 72px;
+  cursor: pointer;
+  position: relative;
+  left: 8px;
+  bottom: 34px;
+}
+
+.usertext-container {
+    display: flex;
+    flex-direction: column;
+    width: 210px;
+}
+
+.user-fullname {
+  font-size: 18px;
+  position: relative;
+  left: 18px;
+  top: 5px;
+  color: #000;
+  font-weight: bold;
+}
+
+.user-username {
+  font-size: 14px;
+  position: relative;
+  top: 5px;
+  left: 18px;
+  color: #666;
+  
+}
+
+.stats-fullname:hover {
+  text-decoration: underline;
+}
+
+.stats-container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.stats-title {
+  color: #666;
+  font-weight: bold;
+  font-size: 16px;
+  position: relative;
+
+}
+
+.stats-number {
+  color: #1da1f2;
+  font-weight: bold;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+.stats-number:hover {
+  text-decoration: underline;
+}
+
+.all-stats {
+  display: flex;
+  flex-direction: row;
+
+}
