@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  height: 160px;
+  height: 50px;
 }
 
 .user-banner {
@@ -32,6 +32,7 @@
     display: flex;
     flex-direction: column;
     width: 210px;
+    height: 50px;
 }
 
 .user-fullname {
@@ -49,40 +50,43 @@
   top: 5px;
   left: 18px;
   color: #666;
-  
 }
 
 .stats-fullname:hover {
   text-decoration: underline;
 }
 
+.all-stats {
+  display: flex;
+  flex-direction: row;
+}
+
 .stats-container {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 12px;
 }
-
 
 .stats-title {
   color: #666;
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: 800;
+  text-align: center;
+  font-size: 14px;
   position: relative;
-
+  cursor: pointer;
+}
+.stats-title:hover {
+  color: #1da1f2;
 }
 
 .stats-number {
   color: #1da1f2;
   font-weight: bold;
+  text-align: center;
+  font-size: 16px;
   margin-left: 2px;
   cursor: pointer;
-}
-
-.stats-number:hover {
-  text-decoration: underline;
-}
-
-.all-stats {
-  display: flex;
-  flex-direction: row;
-
 }
