@@ -5,7 +5,7 @@ class UserInfo extends React.Component {
   render() {
     return (
       <div>
-        <img className="user-banner" src={this.props.banner} />
+        <img className="user-banner" src={this.props.banner} alt="banner" />
         <div className="userinfo-container">
           <img
             className="user-avatar"

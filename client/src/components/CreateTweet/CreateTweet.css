@@ -45,18 +45,19 @@
   color:#000;
   outline: none !important;
   padding: 10px;
+  padding-left: 16px;
   height: 80px;
   width: 510px;
   border: 1px solid #A3D4F2;
   border-radius: 8px;
   
 }
-.twitter-textarea::-webkit-input-placeholder {  color: #999; }
+.twitter-textarea::-webkit-input-placeholder {  color: #ccd6dd; }
 
 .twitter-textarea.small {
   height: 38px;
 }
-.twitter-textarea.small::-webkit-input-placeholder {  color: #2185d0;}
+.twitter-textarea.small::-webkit-input-placeholder {  color: #1b95e0;}
 
 .actions-container {
   display: flex;
@@ -70,6 +71,12 @@
   position: relative;
   bottom: 1px;
   right: 16px;
+}
+
+.ui.small.button.blue {
+  background-color: #1da1f2;
+  border: 1px solid #1da1f2;
+  color: #fff;
 }
 
 .counter {

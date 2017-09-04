@@ -16,6 +16,14 @@ class CreateTweet extends React.Component {
     return 140 - this.state.text.length;
   };
 
+  onFocus = e => {
+    this.setState({ onFocus: true });
+  };
+
+  onBlur = e => {
+    if (e.target.value === '') this.setState({ onFocus: false });
+  };
+
   render() {
     const charClass = classNames({
       counter: true,
@@ -41,7 +49,7 @@ class CreateTweet extends React.Component {
                 rows="1"
                 placeholder="O que está acontecendo?"
                 name="text"
-                onFocus={() => this.setState({ onFocus: true })}
+                onFocus={this.onFocus}
                 value={this.state.text}
                 onChange={this.onChange}
               />
@@ -63,6 +71,7 @@ class CreateTweet extends React.Component {
                 name="text"
                 value={this.state.text}
                 onChange={this.onChange}
+                onBlur={this.onBlur}
               />
             </div>
 

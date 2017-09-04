@@ -15,6 +15,7 @@
   width: 100%;
   padding: 0;
   margin-top: 0px;
+  cursor: pointer;
 }
 
 .user-avatar {
@@ -40,8 +41,13 @@
   position: relative;
   left: 18px;
   top: 5px;
-  color: #000;
+  color: #14171A;
   font-weight: bold;
+}
+
+.user-fullname:hover {
+  text-decoration: underline;
+  color: #14171A;
 }
 
 .user-username {
@@ -49,12 +55,14 @@
   position: relative;
   top: 5px;
   left: 18px;
-  color: #666;
+  color: #657786;
+  cursor: pointer;
 }
 
-.stats-fullname:hover {
+.user-username:hover {
   text-decoration: underline;
 }
+
 
 .all-stats {
   display: flex;
@@ -71,7 +79,7 @@
 }
 
 .stats-title {
-  color: #666;
+  color: #657786;
   font-weight: 800;
   text-align: center;
   font-size: 14px;

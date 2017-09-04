@@ -12,10 +12,9 @@
 
 .tweet-container :hover {
   background-color: #f5f8fa;
+  cursor: pointer;
 }
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #ccc;
-}
+
 .tw-avatar {
   border-radius: 50%;
   height: 48px;
@@ -35,7 +34,7 @@
 
 .fullname {
   margin-left: 10px;
-  color: #000;
+  color: #14171A;
   font-size: 14px;
   font-weight: bold;
 }
@@ -47,6 +46,7 @@
 .username {
   color: #657786;
   margin-left: 5px;
+  cursor: pointer;
 }
 
 .time {
