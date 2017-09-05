@@ -6,9 +6,13 @@ import UserInfo from './UserInfo/UserInfo';
 import logo from '../assets/logo.jpg';
 import banner from '../assets/banner.jpg';
 import './App.css';
+import { graphql } from 'react-apollo';
+import GET_TWEETS_QUERY from '../graphql/queries/getTweets';
 
 class App extends Component {
   render() {
+    const { data } = this.props;
+
     return (
       <div>
         <Navbar />
@@ -23,7 +27,7 @@ class App extends Component {
           </div>
           <div className="twitter-feed-container">
             <CreateTweet logo={logo} />
-            <TweetFeed />
+            <TweetFeed data={data} />
           </div>
           <div className="right-block">
             <h3>Quem seguir</h3>
@@ -38,4 +42,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default graphql(GET_TWEETS_QUERY)(App);

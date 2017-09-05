@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Tweet.css';
+import './TweetCard.css';
 
-class Tweet extends Component {
+class TweetCard extends Component {
   render() {
     return (
       <div className="tweet-container">
@@ -13,9 +13,7 @@ class Tweet extends Component {
           />
           <div className="tweet-info-container">
             <div className="user-info">
-              <a strong className="fullname">
-                {this.props.fullname}
-              </a>
+              <a className="fullname">{this.props.fullname}</a>
               <span className="username">{this.props.username}</span>
               <span className="time">{this.props.time}</span>
             </div>
@@ -27,4 +25,4 @@ class Tweet extends Component {
   }
 }
 
-export default Tweet;
+export default TweetCard;

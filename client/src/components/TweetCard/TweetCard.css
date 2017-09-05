@@ -10,6 +10,21 @@
   padding: 12px 12px;
 }
 
+.tweet.loading {
+  background-color: #f5f8fa;
+  color: #1B95E0;
+  display: flex;
+  flex: 1;
+  height:42px;
+  justify-content: center;
+  font-size: 14px; 
+}
+.tweet.loading:hover {
+  background-color: #e6ecf0;
+  border: 1px solid #ccd6dd;
+}
+
+
 .tweet-container :hover {
   background-color: #f5f8fa;
   cursor: pointer;

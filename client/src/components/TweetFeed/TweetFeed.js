@@ -1,38 +1,66 @@
 import React from 'react';
 import './TweetFeed.css';
-import Tweet from '../Tweet/Tweet';
+import TweetCard from '../TweetCard/TweetCard';
+
 import zeus from '../../assets/zeus.jpg';
 import fallen from '../../assets/fallen.jpg';
 import logo from '../../assets/logo.jpg';
 
-const TweetFeed = () => {
-  return (
-    <div className="twitter-feed">
-      <Tweet
-        avatar={logo}
-        fullname="Arlindo Torres"
-        username="@Torrescsgo"
-        time="2 min"
-        text="First tweet"
-      />
+import moment from 'moment';
+import 'moment/locale/pt';
 
-      <Tweet
-        avatar={zeus}
-        fullname="Daniil Teslenko"
-        username="@ZeusCS_GO"
-        time="23 de jul"
-        text="I fucking did it. YES!!!!!!!!!!!!! 🏆🏆🏆🏆🏆"
-      />
+moment.locale('pt');
 
-      <Tweet
-        avatar={fallen}
-        fullname="Gabriel Toledo"
-        username="@FalleNCS"
-        time="23 de jul"
-        text="Give hobbit the trophy."
-      />
-    </div>
-  );
-};
+class TweetFeed extends React.Component {
+  render() {
+    const { data } = this.props;
+    console.log(data);
+
+    return (
+      <div className="twitter-feed">
+        {data.networkStatus === 1 || data.error ? (
+          <div className="tweet loading">
+            <span className="loading-text">A carregar...</span>{' '}
+          </div>
+        ) : (
+            data.getTweets.map(tweet => (
+              <TweetCard
+                avatar={tweet.user.avatar}
+                fullname={tweet.user.firstName + ' ' + tweet.user.lastName}
+                username={'@' + tweet.user.username}
+                text={tweet.text}
+                time={moment(tweet.time).fromNow()}
+              key={tweet._id}  
+            />
+          ))
+        )}
+
+        <TweetCard
+          avatar={logo}
+          fullname="Arlindo Torres"
+          username="@Torrescsgo"
+          time={moment().startOf('hour').fromNow()}
+          text="First tweet"
+        />
+
+        <TweetCard
+          avatar={zeus}
+          fullname="Daniil Teslenko"
+          username="@ZeusCS_GO"
+          time={moment("20170723", "YYYYMMDD").fromNow()}
+          text="I fucking did it. YES!!!!!!!!!!!!! 🏆🏆🏆🏆🏆"
+        />
+
+        <TweetCard
+          avatar={fallen}
+          fullname="Gabriel Toledo"
+          username="@FalleNCS"
+          time={moment("20170723", "YYYYMMDD").fromNow()}
+          text="Give hobbit the trophy."
+        />
+      </div>
+    );
+  }
+}
 
 export default TweetFeed;
