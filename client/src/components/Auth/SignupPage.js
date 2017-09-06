@@ -1,32 +1,14 @@
 import React, { Component } from 'react';
-import './SignupPage.css';
-import styled from 'styled-components';
-
-const Background = styled.div`
-  background: #fff;
-  height: 100vh;
-  display: flex;
-`;
-const Title = styled.h1`font-size: 28px;`;
-
-const SignupContainer = styled.div`
-  justify-content: center;
-  width: 392px;
-  padding: 30px 0;
-  margin: 0 auto;
-  margin-bottom: 25px;
-  margin-top: 10px;
-  padding-top: 20px;
-`;
-const Container = styled.div`
-  margin-top: 100px;
-  padding-top: 20px;
-  flex: 1;
-  width: 500px;
-  border: 0;
-  justify-content: center;
-`;
-const Field = styled.div`padding-bottom: 25px;`;
+import './Auth.css';
+import {
+  Background,
+  Container,
+  FormContainer,
+  Title,
+  Field,
+  Navbar,
+} from './Shared';
+import { Link } from 'react-router-dom';
 
 class SignupPage extends Component {
   state = {
@@ -43,24 +25,13 @@ class SignupPage extends Component {
   render() {
     return (
       <Background>
-        <div
-          className="ui fixed borderless menu gradient"
-          style={{ height: 47 }}
-        >
-          <div className="ui container">
-            <i
-              className="fa fa-twitter white fa-2x"
-              style={{ color: '#fff' }}
-              aria-hidden="true"
-            />
-          </div>
-        </div>
+        <Navbar />
         <Container>
-          <SignupContainer>
+          <FormContainer>
             <Title>Participe hoje no Twitter.</Title>
             <Field>
               <input
-                className="signup-input"
+                className="field-input"
                 onChange={this.onChange}
                 value={this.state.fullname}
                 name="fullname"
@@ -70,16 +41,16 @@ class SignupPage extends Component {
             </Field>
             <Field>
               <input
-                className="signup-input"
+                className="field-input"
                 onChange={this.onChange}
                 value={this.state.username}
                 name="username"
-                placeholder="Username"
+                placeholder="Nome de utilizador"
               />
             </Field>
             <Field>
               <input
-                className="signup-input"
+                className="field-input"
                 onChange={this.onChange}
                 value={this.state.email}
                 name="email"
@@ -88,16 +59,21 @@ class SignupPage extends Component {
             </Field>
             <Field>
               <input
-                className="signup-input"
+                className="field-input"
                 onChange={this.onChange}
                 value={this.state.password}
                 name="password"
                 type="password"
-                placeholder="Senha"
+                placeholder="Palavra-passe"
               />
             </Field>
-            <button className="ui big button blue">Inscreva-se</button>
-          </SignupContainer>
+            <button className="ui big button blue gradb">Inscreva-se</button>
+            <div className="form-helper">
+              <p>
+                Já tem conta no Twitter? <Link to="/login"> Entre agora »</Link>
+              </p>
+            </div>
+          </FormContainer>
         </Container>
       </Background>
     );

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
-import CreateTweet from '../TweetCreate/TweetCreate';
+import CreateTweet from '../CreateTweet/CreateTweet';
 import TweetFeed from '../TweetFeed/TweetFeed';
 import UserInfo from '../UserStats/UserStats';
 import logo from '../../assets/logo.jpg';
 import banner from '../../assets/banner.jpg';
-import './Home.css';
+import './Dashboard.css';
 import { graphql } from 'react-apollo';
 import GET_TWEETS_QUERY from '../../graphql/queries/getTweets';
 
-class Home extends Component {
+class Dashboard extends Component {
   render() {
     const { data } = this.props;
 
@@ -42,4 +42,4 @@ class Home extends Component {
   }
 }
 
-export default graphql(GET_TWEETS_QUERY)(Home);
+export default graphql(GET_TWEETS_QUERY)(Dashboard);

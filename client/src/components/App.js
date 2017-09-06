@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import Home from './Home/Home';
-import SignupPage from './SignupPage/SignupPage';
+import Dashboard from './Dashboard/Dashboard';
+import SignupPage from './Auth/SignupPage';
+import LoginPage from './Auth/LoginPage';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Dashboard} />
         <Route path="/signup" component={SignupPage} />
+        <Route path="/login" component={LoginPage} />
       </div>
     );
   }
