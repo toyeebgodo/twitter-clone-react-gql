@@ -1,8 +1,8 @@
 import React from 'react';
-import './CreateTweet.css';
+import './TweetCreate.css';
 import classNames from 'classnames';
 
-class CreateTweet extends React.Component {
+class TweetCreate extends React.Component {
   state = {
     text: '',
     onFocus: false,
@@ -91,4 +91,4 @@ class CreateTweet extends React.Component {
   }
 }
 
-export default CreateTweet;
+export default TweetCreate;

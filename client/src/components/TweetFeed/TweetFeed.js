@@ -23,14 +23,14 @@ class TweetFeed extends React.Component {
             <span className="loading-text">A carregar...</span>{' '}
           </div>
         ) : (
-            data.getTweets.map(tweet => (
-              <TweetCard
-                avatar={tweet.user.avatar}
-                fullname={tweet.user.firstName + ' ' + tweet.user.lastName}
-                username={'@' + tweet.user.username}
-                text={tweet.text}
-                time={moment(tweet.time).fromNow()}
-              key={tweet._id}  
+          data.getTweets.map(tweet => (
+            <TweetCard
+              avatar={tweet.user.avatar}
+              fullname={tweet.user.firstName + ' ' + tweet.user.lastName}
+              username={'@' + tweet.user.username}
+              text={tweet.text}
+              time={moment(tweet.time).fromNow()}
+              key={tweet._id}
             />
           ))
         )}
@@ -39,7 +39,9 @@ class TweetFeed extends React.Component {
           avatar={logo}
           fullname="Arlindo Torres"
           username="@Torrescsgo"
-          time={moment().startOf('hour').fromNow()}
+          time={moment()
+            .startOf('hour')
+            .fromNow()}
           text="First tweet"
         />
 
@@ -47,7 +49,7 @@ class TweetFeed extends React.Component {
           avatar={zeus}
           fullname="Daniil Teslenko"
           username="@ZeusCS_GO"
-          time={moment("20170723", "YYYYMMDD").fromNow()}
+          time={moment('20170723', 'YYYYMMDD').fromNow()}
           text="I fucking did it. YES!!!!!!!!!!!!! 🏆🏆🏆🏆🏆"
         />
 
@@ -55,7 +57,7 @@ class TweetFeed extends React.Component {
           avatar={fallen}
           fullname="Gabriel Toledo"
           username="@FalleNCS"
-          time={moment("20170723", "YYYYMMDD").fromNow()}
+          time={moment('20170723', 'YYYYMMDD').fromNow()}
           text="Give hobbit the trophy."
         />
       </div>

@@ -80,9 +80,9 @@
 
 .stats-title {
   color: #657786;
-  font-weight: 800;
   text-align: center;
   font-size: 14px;
+  font-weight: 600;
   position: relative;
   cursor: pointer;
 }
@@ -92,7 +92,7 @@
 
 .stats-number {
   color: #1da1f2;
-  font-weight: bold;
+  font-weight: 600;
   text-align: center;
   font-size: 16px;
   margin-left: 2px;

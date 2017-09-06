@@ -1,0 +1,38 @@
+.twitter-page-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 55px;
+}
+
+.twitter-feed-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-block {
+  display: flex;
+  width: 288px;
+  height: 210px;
+  background: #fff;
+  padding: 0px;
+  border: 1px solid #e6ecf0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.right-block {
+  display: flex;
+  width: 288px;
+  height: 400px;
+  background: #fff;
+  padding: 15px;
+  border: 1px solid #e6ecf0;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.right-block-links {
+  margin-left: 5px;
+  margin-top: 2px;
+}

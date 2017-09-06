@@ -1,7 +1,7 @@
 import React from 'react';
-import './UserInfo.css';
+import './UserStats.css';
 
-class UserInfo extends React.Component {
+class UserStats extends React.Component {
   render() {
     return (
       <div>
@@ -38,4 +38,4 @@ class UserInfo extends React.Component {
   }
 }
 
-export default UserInfo;
+export default UserStats;
