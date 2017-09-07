@@ -43,7 +43,7 @@ class LoginPage extends Component {
                 value={this.state.password}
                 name="password"
                 type="password"
-                placeholder="Senha"
+                placeholder="Palavra-passe"
               />
             </Field>
             <button className="ui big button blue gradb">Entrar</button>

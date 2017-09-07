@@ -30,7 +30,7 @@
   cursor: pointer;
 }
 
-.tw-avatar {
+.tweet-avatar {
   border-radius: 50%;
   height: 48px;
   width: 48px;
@@ -42,38 +42,40 @@
   flex-direction: column
 }
 
-.user-info {
+.text-container {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.tweet-user-info {
   display: flex;
   flex-direction: row
 }
 
-.fullname {
+.tweet-fullname {
   margin-left: 10px;
   color: #14171A;
   font-size: 14px;
   font-weight: bold;
 }
 
-.fullname:hover {
+.tweet-fullname:hover {
   text-decoration: underline;
 }
 
-.username {
+.tweet-username {
   color: #657786;
   margin-left: 5px;
   cursor: pointer;
+  letter-spacing: .02em;
 }
 
-.time {
+.tweet-time {
   color: #657786;
   margin-left: 5px;
 }
 
-.time:before {
+.tweet-time:before {
   content: "\00b7";
   margin-right: 5px;
-}
-
-.text-container {
-  margin-left: 10px;
 }
