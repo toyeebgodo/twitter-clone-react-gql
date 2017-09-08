@@ -61,6 +61,7 @@
 
 .tweet-fullname:hover {
   text-decoration: underline;
+  color: #1da1f2;
 }
 
 .tweet-username {

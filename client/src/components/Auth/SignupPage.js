@@ -27,7 +27,9 @@ class SignupPage extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSignup = async () => {
+  onSignup = async e => {
+    e.preventDefault();
+
     this.setState({ loading: true });
 
     const { email, password, username, fullName } = this.state;
@@ -44,24 +46,10 @@ class SignupPage extends Component {
         },
       });
       localStorage.setItem('token', data.signup.token);
-      this.setState({ loading: false });
-      this.setState({ redirect: true });
+      this.setState({ loading: false, redirect: true });
     } catch (error) {
       throw error;
     }
-
-    this.props
-      .mutate({
-        variables: { email, username, password, fullName, avatar },
-      })
-      .then(({ data }) => {
-        console.log('data.signup.token:', data.signup.token);
-        // localstorage token
-        this.setState({ redirect: true });
-      })
-      .catch(error => {
-        console.log('there was an error sending the query', error);
-      });
   };
 
   render() {
@@ -71,61 +59,64 @@ class SignupPage extends Component {
           <Redirect to="/" />
         ) : (
           <Background>
-            <Navbar />
+              <Navbar loading={this.state.loading}/>
             <Container>
               <FormContainer>
-                <Title>Participe hoje no Twitter.</Title>
-                <Field>
-                  <input
-                    className="field-input"
-                    onChange={this.onChange}
-                    value={this.state.fullName}
-                    name="fullName"
-                    maxLength="20"
-                    placeholder="Nome completo"
-                  />
-                </Field>
-                <Field>
-                  <input
-                    className="field-input"
-                    onChange={this.onChange}
-                    value={this.state.username}
-                    name="username"
-                    placeholder="Nome de utilizador"
-                  />
-                </Field>
-                <Field>
-                  <input
-                    className="field-input"
-                    onChange={this.onChange}
-                    value={this.state.email}
-                    name="email"
-                    placeholder="E-mail"
-                  />
-                </Field>
-                <Field>
-                  <input
-                    className="field-input"
-                    onChange={this.onChange}
-                    value={this.state.password}
-                    name="password"
-                    type="password"
-                    placeholder="Palavra-passe"
-                  />
-                </Field>
-                <button
-                  onClick={this.onSignup}
-                  className="ui big button blue gradb"
-                >
-                  Inscreva-se
-                </button>
+                <form onSubmit={this.onSignup}>
+                  <Title>Participe hoje no Twitter.</Title>
+                  <Field>
+                    <input
+                      className="field-input"
+                      onChange={this.onChange}
+                      value={this.state.fullName}
+                      name="fullName"
+                      maxLength="20"
+                      placeholder="Nome completo"
+                    />
+                  </Field>
+                  <Field>
+                    <input
+                      className="field-input"
+                      onChange={this.onChange}
+                      value={this.state.username}
+                      name="username"
+                      placeholder="Nome de utilizador"
+                    />
+                  </Field>
+                  <Field>
+                    <input
+                      className="field-input"
+                      onChange={this.onChange}
+                      value={this.state.email}
+                      name="email"
+                      placeholder="E-mail"
+                    />
+                  </Field>
+                  <Field>
+                    <input
+                      className="field-input"
+                      onChange={this.onChange}
+                      value={this.state.password}
+                      name="password"
+                      type="password"
+                      placeholder="Palavra-passe"
+                    />
+                  </Field>
+                  <button
+                    disabled={this.state.loading}
+                    onClick={this.onSignup}
+                    className="ui big button blue gradb"
+                  >
+                    Inscreva-se
+                  </button>
 
-                <div className="form-helper">
-                  <p>
-                    Já tem conta no Twitter?{' '}
-                    <Link to="/login"> Entre agora »</Link>
-                  </p>
-                </div>
+                  <div className="form-helper">
+                    <p>
+                      Já tem conta no Twitter?{' '}
+                      <Link to="/login"> Entre agora »</Link>
+                    </p>
+                  </div>
+                </form>
               </FormContainer>
             </Container>
           </Background>

@@ -6,3 +6,43 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+ 
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  width: 22px;
+  height: 22px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border-top: 3px solid #1da1f2;
+  border-right: 3px solid transparent;
+  animation: spinner .8s linear infinite;
+}
+
+@keyframes spinner-white {
+  to {transform: rotate(360deg);}
+}
+ 
+.spinner-white:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 52.3%;
+  width: 22px;
+  height: 22px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border-top: 3px solid #fff;
+  border-right: 3px solid transparent;
+  animation: spinner .8s linear infinite;
+}

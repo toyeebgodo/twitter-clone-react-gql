@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const Navbar = () => (
+export const Navbar = (props) => (
   <div
     className="ui fixed borderless menu gradient"
     style={{ height: 47, borderBottomColor: '#fff' }}
   >
     <div className="ui container">
-      <i
-        className="fa fa-twitter white fa-2x"
-        style={{ color: '#fff' }}
-        aria-hidden="true"
-      />
+      {props.loading ? <i className="spinner-white" /> :
+        <i
+          className="fa fa-twitter white fa-2x"
+          style={{ color: '#fff' }}
+          aria-hidden="true"
+      /> } 
     </div>
   </div>
 );

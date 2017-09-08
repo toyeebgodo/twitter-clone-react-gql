@@ -2,6 +2,7 @@ import React from 'react';
 import './Navbar.css';
 
 export const Navbar = props => {
+
   return (
     <div className="ui fixed borderless menu" style={{ height: 47 }}>
       <div className="ui container">
@@ -17,7 +18,11 @@ export const Navbar = props => {
           <i className="fa fa-envelope-o" aria-hidden="true" />
           <span className="item-text">Mensagens</span>
         </a>
-        <i className="fa fa-twitter fa-2x" aria-hidden="true" />
+        {props.loading ? (
+          <i className="spinner" />
+        ) : (
+          <i className="fa fa-twitter fa-2x" aria-hidden="true" />
+        )}
       </div>
     </div>
   );

@@ -5,6 +5,11 @@ import SignupPage from './Auth/SignupPage';
 import LoginPage from './Auth/LoginPage';
 import './App.css';
 
+/*
+  Me query to see if user is authenticated
+  TODO: Implement authenticated routes
+*/
+
 class App extends Component {
   render() {
     return (

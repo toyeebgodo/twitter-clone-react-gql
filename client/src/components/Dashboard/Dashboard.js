@@ -11,11 +11,11 @@ import GET_TWEETS_QUERY from '../../graphql/queries/getTweets';
 
 class Dashboard extends Component {
   render() {
-    const { data } = this.props;
+    const { data, loading } = this.props;
 
     return (
       <div>
-        <Navbar />
+        <Navbar loading={loading}/>
         <div className="twitter-page-container">
           <div className="left-block">
             <UserInfo
