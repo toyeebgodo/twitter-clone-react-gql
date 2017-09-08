@@ -14,7 +14,7 @@ class UserStats extends React.Component {
               alt={this.props.fullname}
             />
             <div className="usertext-container">
-              <a href className="user-fullname">
+              <a href="/" className="user-fullname">
                 {this.props.fullname}
               </a>
               <span className="user-username">{this.props.username}</span>

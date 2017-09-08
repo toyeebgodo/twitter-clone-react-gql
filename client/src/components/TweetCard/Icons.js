@@ -13,7 +13,7 @@ export const ActionItem = styled.div`
   height: 22px;
   width: 90px;
   path {
-    transition: fill 0.15s ease-in-out;
+    transition: fill 0.1s ease-out;
   }
   &:hover {
     fill: #1da1f2;
@@ -28,7 +28,7 @@ export const ActionItem = styled.div`
     position: relative;
     bottom: 5px;
     margin-left: 1px;
-    transition: color 0.15s ease-in-out;
+    transition: color 0.1s ease-out;
   }
 `;
 

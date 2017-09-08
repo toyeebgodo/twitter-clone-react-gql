@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+
 import jwt from 'jsonwebtoken';
 
 import constants from '../config/constants';

@@ -1,3 +1,5 @@
+/* eslint-disable no-underscore-dangle */
+
 import mongoose, { Schema } from 'mongoose';
 import { hashSync, compareSync } from 'bcrypt-nodejs';
 import jwt from 'jsonwebtoken';
@@ -10,15 +12,14 @@ const UserSchema = new Schema(
       type: String,
       unique: true,
     },
-    firstName: String,
-    lastName: String,
+    fullName: String,
     avatar: String,
     password: String,
     email: String,
   },
   { timestamps: true },
 );
-UserSchema.pre('save', function(next) {
+UserSchema.pre('save', function (next) {
   if (this.isModified('password')) {
     this.password = this._hashPassword(this.password);
     return next();

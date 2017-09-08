@@ -8,14 +8,11 @@ mutation createTweet($text: String!){
     text
     user {
       username
-      firstName
-      lastName
+      fullName
       email
       avatar
+     }
     }
   }
-}
-
-
 }
 `;

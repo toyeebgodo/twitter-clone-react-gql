@@ -26,7 +26,7 @@ class TweetFeed extends React.Component {
           data.getTweets.map(tweet => (
             <TweetCard
               avatar={tweet.user.avatar}
-              fullname={tweet.user.firstName + ' ' + tweet.user.lastName}
+              fullname={tweet.user.fullName}
               username={'@' + tweet.user.username}
               text={tweet.text}
               time={moment(tweet.time).fromNow()}

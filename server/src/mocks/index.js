@@ -16,8 +16,7 @@ export default async () => {
     await Array.from({ length: USERS_TOTAL }).forEach(async (_, i) => {
       const user = await User.create({
         username: faker.internet.userName(),
-        firstName: faker.name.firstName(),
-        lastName: faker.name.lastName(),
+        fullName: `${faker.name.firstName()} ${faker.name.lastName()}`,
         email: faker.internet.email(),
         avatar: `https://api.adorable.io/avatars/285/${i}6.png`,
         password: 'password123',
