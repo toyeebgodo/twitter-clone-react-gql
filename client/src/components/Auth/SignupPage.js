@@ -8,10 +8,11 @@ import {
   Field,
   Navbar,
 } from './Shared';
-import { Link } from 'react-router-dom';
-import { graphql } from 'react-apollo';
+import { Link, Redirect } from 'react-router-dom';
+import { graphql, compose } from 'react-apollo';
 import SIGNUP_MUTATION from '../../graphql/mutations/signup';
-import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { login } from '../../actions/users';
 
 class SignupPage extends Component {
   state = {
@@ -19,8 +20,8 @@ class SignupPage extends Component {
     email: '',
     username: '',
     password: '',
-    redirect: false,
     loading: false,
+    redirect: false,
   };
 
   onChange = e => {
@@ -46,6 +47,9 @@ class SignupPage extends Component {
         },
       });
       localStorage.setItem('token', data.signup.token);
+
+      this.props.login();
+
       this.setState({ loading: false, redirect: true });
     } catch (error) {
       throw error;
@@ -53,77 +57,78 @@ class SignupPage extends Component {
   };
 
   render() {
+    const { redirect } = this.state;
+
     return (
       <div>
-        {this.state.redirect ? (
-          <Redirect to="/" />
-        ) : (
-          <Background>
-              <Navbar loading={this.state.loading}/>
-            <Container>
-              <FormContainer>
-                <form onSubmit={this.onSignup}>
-                  <Title>Participe hoje no Twitter.</Title>
-                  <Field>
-                    <input
-                      className="field-input"
-                      onChange={this.onChange}
-                      value={this.state.fullName}
-                      name="fullName"
-                      maxLength="20"
-                      placeholder="Nome completo"
-                    />
-                  </Field>
-                  <Field>
-                    <input
-                      className="field-input"
-                      onChange={this.onChange}
-                      value={this.state.username}
-                      name="username"
-                      placeholder="Nome de utilizador"
-                    />
-                  </Field>
-                  <Field>
-                    <input
-                      className="field-input"
-                      onChange={this.onChange}
-                      value={this.state.email}
-                      name="email"
-                      placeholder="E-mail"
-                    />
-                  </Field>
-                  <Field>
-                    <input
-                      className="field-input"
-                      onChange={this.onChange}
-                      value={this.state.password}
-                      name="password"
-                      type="password"
-                      placeholder="Palavra-passe"
-                    />
-                  </Field>
-                  <button
-                    disabled={this.state.loading}
-                    onClick={this.onSignup}
-                    className="ui big button blue gradb"
-                  >
-                    Inscreva-se
-                  </button>
+        <Background>
+          <Navbar loading={this.state.loading} />
+          <Container>
+            <FormContainer>
+              <form onSubmit={this.onSignup}>
+                <Title>Participe hoje no Twitter.</Title>
+                <Field>
+                  <input
+                    className="field-input"
+                    onChange={this.onChange}
+                    value={this.state.fullName}
+                    name="fullName"
+                    maxLength="20"
+                    placeholder="Nome completo"
+                  />
+                </Field>
+                <Field>
+                  <input
+                    className="field-input"
+                    onChange={this.onChange}
+                    value={this.state.username}
+                    name="username"
+                    placeholder="Nome de utilizador"
+                  />
+                </Field>
+                <Field>
+                  <input
+                    className="field-input"
+                    onChange={this.onChange}
+                    value={this.state.email}
+                    name="email"
+                    placeholder="E-mail"
+                  />
+                </Field>
+                <Field>
+                  <input
+                    className="field-input"
+                    onChange={this.onChange}
+                    value={this.state.password}
+                    name="password"
+                    type="password"
+                    placeholder="Palavra-passe"
+                  />
+                </Field>
+                <button
+                  disabled={this.state.loading}
+                  onClick={this.onSignup}
+                  className="ui big button blue gradb"
+                >
+                  Inscreva-se
+                </button>
 
-                  <div className="form-helper">
-                    <p>
-                      Já tem conta no Twitter?{' '}
-                      <Link to="/login"> Entre agora »</Link>
-                    </p>
-                  </div>
-                </form>
-              </FormContainer>
-            </Container>
-          </Background>
-        )}{' '}
+                <div className="form-helper">
+                  <p>
+                    Já tem conta no Twitter?{' '}
+                    <Link to="/login"> Entre agora »</Link>
+                  </p>
+                </div>
+              </form>
+            </FormContainer>
+          </Container>
+        </Background>
+        {redirect && <Redirect to="/" />}
       </div>
     );
   }
 }
 
-export default graphql(SIGNUP_MUTATION)(SignupPage);
+export default compose(graphql(SIGNUP_MUTATION), connect(undefined, { login }))(
+  SignupPage,
+);

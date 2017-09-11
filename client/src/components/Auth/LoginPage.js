@@ -9,8 +9,10 @@ import {
   Navbar,
 } from './Shared';
 import { Link, Redirect } from 'react-router-dom';
-import { graphql } from 'react-apollo';
+import { graphql, compose } from 'react-apollo';
 import LOGIN_MUTATION from '../../graphql/mutations/login';
+import { connect } from 'react-redux';
+import { login } from '../../actions/users';
 
 class LoginPage extends Component {
   state = {
@@ -39,6 +41,8 @@ class LoginPage extends Component {
         },
       });
       localStorage.setItem('token', data.login.token);
+
+      this.props.login();
       this.setState({ loading: false, redirect: true });
     } catch (error) {
       throw error;
@@ -46,56 +50,57 @@ class LoginPage extends Component {
   };
 
   render() {
+    const { redirect } = this.state;
+
+    if (redirect) {
+      return <Redirect to="/" />;
+    }
+
     return (
-      <div>
-        {this.state.redirect ? (
-          <Redirect to="/" />
-        ) : (
-          <Background>
-            <Navbar loading={this.state.loading} />
-            <Container>
-              <FormContainer>
-                <form onSubmit={this.onLogin}>
-                  <Title>Entrar no Twitter.</Title>
-                  <Field>
-                    <input
-                      className="field-input"
-                      onChange={this.onChange}
-                      value={this.state.email}
-                      name="email"
-                      placeholder="E-mail"
-                    />
-                  </Field>
-                  <Field>
-                    <input
-                      className="field-input"
-                      onChange={this.onChange}
-                      value={this.state.password}
-                      name="password"
-                      type="password"
-                      placeholder="Palavra-passe"
-                    />
-                  </Field>
-                  <button
-                    disabled={this.state.loading}
-                    className="ui big button blue gradb"
-                  >
-                    Entrar
-                  </button>
-                  <div className="form-helper">
-                    <p>
-                      Novo no Twitter?{' '}
-                      <Link to="/signup">Inscreva-se agora »</Link>
-                    </p>
-                  </div>
-                </form>
-              </FormContainer>
-            </Container>
-          </Background>
-        )}{' '}
-      </div>
+      <Background>
+        <Navbar loading={this.state.loading} />
+        <Container>
+          <FormContainer>
+            <form onSubmit={this.onLogin}>
+              <Title>Entrar no Twitter.</Title>
+              <Field>
+                <input
+                  className="field-input"
+                  onChange={this.onChange}
+                  value={this.state.email}
+                  name="email"
+                  placeholder="E-mail"
+                />
+              </Field>
+              <Field>
+                <input
+                  className="field-input"
+                  onChange={this.onChange}
+                  value={this.state.password}
+                  name="password"
+                  type="password"
+                  placeholder="Palavra-passe"
+                />
+              </Field>
+              <button
+                disabled={this.state.loading}
+                className="ui big button blue gradb"
+              >
+                Entrar
+              </button>
+              <div className="form-helper">
+                <p>
+                  Novo no Twitter? <Link to="/signup">Inscreva-se agora »</Link>
+                </p>
+              </div>
+            </form>
+          </FormContainer>
+        </Container>
+      </Background>
     );
   }
 }
 
-export default graphql(LOGIN_MUTATION)(LoginPage);
+export default compose(graphql(LOGIN_MUTATION), connect(undefined, { login }))(
+  LoginPage,
+);

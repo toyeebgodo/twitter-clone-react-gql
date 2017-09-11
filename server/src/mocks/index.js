@@ -6,7 +6,7 @@ import Tweet from '../models/Tweet';
 import User from '../models/User';
 
 const TWEETS_TOTAL = 1;
-const USERS_TOTAL = 4;
+const USERS_TOTAL = 5;
 
 export default async () => {
   try {

@@ -1,8 +1,8 @@
 import React from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 export const Navbar = props => {
-
   return (
     <div className="ui fixed borderless menu" style={{ height: 47 }}>
       <div className="ui container">
@@ -21,7 +21,9 @@ export const Navbar = props => {
         {props.loading ? (
           <i className="spinner" />
         ) : (
-          <i className="fa fa-twitter fa-2x" aria-hidden="true" />
+          <Link to="/">
+            <i className="fa fa-twitter fa-2x" aria-hidden="true" />
+          </Link>
         )}
       </div>
     </div>

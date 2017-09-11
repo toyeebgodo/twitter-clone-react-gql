@@ -47,7 +47,6 @@
   top: 5px;
   color: #14171A;
   font-weight: bold;
-  font-family: 'Open Sans', sans-serif;
 }
 
 .user-fullname:hover {
@@ -105,5 +104,4 @@
   font-size: 17px;
   margin-left: 2px;
   cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
 }

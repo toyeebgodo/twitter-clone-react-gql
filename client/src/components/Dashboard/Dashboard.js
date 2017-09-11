@@ -15,7 +15,7 @@ class Dashboard extends Component {
 
     return (
       <div>
-        <Navbar loading={loading}/>
+        <Navbar loading={loading} />
         <div className="twitter-page-container">
           <div className="left-block">
             <UserInfo

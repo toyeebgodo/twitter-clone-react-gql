@@ -85,7 +85,6 @@
   font-weight: bold;
   text-align: center;
   transition: box-shadow .15s ease-in-out;
-  font-family: 'Open Sans', sans-serif;
 }
 
 .ui.small.button.blue:hover {

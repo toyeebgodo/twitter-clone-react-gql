@@ -57,3 +57,35 @@
   color: rgb(9, 141, 222);
   text-decoration: underline;
 }
+
+/* NotFound.js */
+.notfound-title {
+  font-size: 1.7em;
+  -webkit-margin-before: 0.83em;
+  -webkit-margin-after: 0.83em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  font-weight: bold;
+}
+
+.notfound-description {
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+
+}
+
+.notfound-container {
+  margin-top: 100px;
+  padding-top: 20px;
+  flex: 1;
+  border: 0;
+  justify-content: center;
+  text-align: center;
+}
+
+.notfound-page {
+  display:flex;
+}

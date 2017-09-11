@@ -1,26 +1,25 @@
-export function login() {
+export const login = () => {
   return {
-    type: 'LOGIN'
-  }
-}
+    type: 'LOGIN',
+  };
+};
 
-export function getUserInfo(info) {
+export const getUserInfo = info => {
   return {
     type: 'GET_USER_INFO',
-    info
-  }
-}
+    info,
+  };
+};
 
-export function logout() {
-  return async (dispatch) => {
+export const logout = () => {
+  return async dispatch => {
     try {
-      // remove token
-
+      localStorage.removeItem('token');
       return dispatch({
-        type: 'LOGOUT'
-      })
+        type: 'LOGOUT',
+      });
     } catch (error) {
       throw error;
     }
-  }
-}
+  };
+};

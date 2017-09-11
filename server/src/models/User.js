@@ -8,18 +8,15 @@ import constants from '../config/constants';
 
 const UserSchema = new Schema(
   {
-    username: {
-      type: String,
-      unique: true,
-    },
-    fullName: String,
+    username: { type: String, unique: true, required: true, lowercase: true },
+    fullName: { type: String, required: true },
     avatar: String,
-    password: String,
-    email: String,
+    password: { type: String, required: true },
+    email: { type: String, required: true, unique: true, lowercase: true },
   },
   { timestamps: true },
 );
-UserSchema.pre('save', function (next) {
+UserSchema.pre('save', function(next) {
   if (this.isModified('password')) {
     this.password = this._hashPassword(this.password);
     return next();
