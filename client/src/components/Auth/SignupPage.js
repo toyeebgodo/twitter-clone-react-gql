@@ -52,6 +52,7 @@ class SignupPage extends Component {
 
       this.setState({ loading: false, redirect: true });
     } catch (error) {
+      this.setState({ loading: false });
       throw error;
     }
   };

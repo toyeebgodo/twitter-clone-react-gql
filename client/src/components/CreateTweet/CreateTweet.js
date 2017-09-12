@@ -1,11 +1,14 @@
 import React from 'react';
 import './CreateTweet.css';
 import classNames from 'classnames';
+import { graphql } from 'react-apollo';
+import CREATE_TWEET_MUTATION from '../../graphql/mutations/createTweet';
 
 class CreateTweet extends React.Component {
   state = {
     text: '',
     onFocus: false,
+    loading: false,
   };
 
   onChange = e => {
@@ -24,6 +27,25 @@ class CreateTweet extends React.Component {
     if (e.target.value === '') this.setState({ onFocus: false });
   };
 
+  onTweet = async () => {
+    this.setState({ loading: true });
+
+    const { text } = this.state;
+
+    try {
+      const { data } = await this.props.mutate({
+        variables: {
+          text,
+        },
+      });
+
+      this.setState({ loading: false });
+      window.location.reload();
+    } catch (error) {
+      this.setState({ loading: false });
+      throw error;
+    }
+  };
   render() {
     const charClass = classNames({
       counter: true,
@@ -37,6 +59,7 @@ class CreateTweet extends React.Component {
       blue: true,
       disabled: this.state.text.length > 140 || this.state.text.length === 0,
     });
+
     if (!this.state.onFocus)
       return (
         <div>
@@ -80,7 +103,11 @@ class CreateTweet extends React.Component {
                 <span className={charClass} style={{ borderRadius: 25 }}>
                   {this.remainingCharacters()}
                 </span>
-                <button className={buttonClass} style={{ borderRadius: 25 }}>
+                <button
+                  className={buttonClass}
+                  style={{ borderRadius: 25 }}
+                  onClick={this.onTweet}
+                >
                   Tweetar
                 </button>
               </div>
@@ -91,4 +118,4 @@ class CreateTweet extends React.Component {
   }
 }
 
-export default CreateTweet;
+export default graphql(CREATE_TWEET_MUTATION)(CreateTweet);

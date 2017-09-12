@@ -14,7 +14,6 @@ moment.locale('pt');
 class TweetFeed extends React.Component {
   render() {
     const { data } = this.props;
-    console.log(data);
 
     return (
       <div className="twitter-feed">
@@ -23,16 +22,20 @@ class TweetFeed extends React.Component {
             <span className="loading-text">A carregar...</span>{' '}
           </div>
         ) : (
-          data.getTweets.map(tweet => (
-            <TweetCard
-              avatar={tweet.user.avatar}
-              fullname={tweet.user.fullName}
-              username={'@' + tweet.user.username}
-              text={tweet.text}
-              time={moment(tweet.time).fromNow()}
-              key={tweet._id}
-            />
-          ))
+          data.getTweets.map(tweet => {
+            console.log(tweet.createdAt);
+
+            return (
+              <TweetCard
+                avatar={tweet.user.avatar}
+                fullname={tweet.user.fullName}
+                username={'@' + tweet.user.username}
+                text={tweet.text}
+                time={moment(tweet.createdAt).fromNow()}
+                key={tweet._id}
+              />
+            );
+          })
         )}
 
         <TweetCard

@@ -45,6 +45,7 @@ class LoginPage extends Component {
       this.props.login();
       this.setState({ loading: false, redirect: true });
     } catch (error) {
+      this.setState({ loading: false });
       throw error;
     }
   };
