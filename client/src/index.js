@@ -11,7 +11,7 @@ import {
 import { BrowserRouter } from 'react-router-dom';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-
+import { reducer as formReducer } from 'redux-form'
 import users from './reducers/users';
 
 const networkInterface = createNetworkInterface({
@@ -24,8 +24,10 @@ networkInterface.use([
       if (!req.options.headers) {
         req.options.headers = {}; // Create the header object if needed.
       }
+     
       // get the authentication token from local storage if it exists
       const token = localStorage.getItem('token');
+      console.log('@network/headers',token)
       req.options.headers.authorization = token ? `Bearer ${token}` : null;
       next();
     },
@@ -42,6 +44,7 @@ const store = createStore(
   combineReducers({
     users: users,
     apollo: client.reducer(),
+    form: formReducer,
   }),
   {}, // initial state
   compose(

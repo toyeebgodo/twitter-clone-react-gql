@@ -46,8 +46,9 @@ class SignupPage extends Component {
           avatar,
         },
       });
-      localStorage.setItem('token', data.signup.token);
-
+      console.log('@signup/data', data)
+      let { token } = data.signup
+      localStorage.setItem('token', token);
       this.props.login();
 
       this.setState({ loading: false, redirect: true });

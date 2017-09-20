@@ -14,12 +14,13 @@ const schema = makeExecutableSchema({
 
 async function auth(req, res, next) {
   try {
-    const token = req.headers.authorization;
-    if (token != null) {
-      const user = await decodeToken(token);
-      req.user = user;
-    } else {
+    console.log('@auth/req.headers.authorization: ', req.headers.authorization);
+    if (req.headers.authorization === null) {
       req.user = null;
+    } else {
+      const token = req.headers.authorization;
+      console.log('@auth/token: ', token);
+      req.user = token === null ? null : await decodeToken(token);
     }
     return next();
   } catch (error) {
@@ -27,7 +28,7 @@ async function auth(req, res, next) {
   }
 }
 
-export default app => {
+export default (app) => {
   app.use(bodyParser.json());
 
   app.use(auth);

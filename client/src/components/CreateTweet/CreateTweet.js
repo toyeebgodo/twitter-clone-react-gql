@@ -1,14 +1,14 @@
-import React from 'react';
-import './CreateTweet.css';
-import classNames from 'classnames';
-import { graphql } from 'react-apollo';
-import CREATE_TWEET_MUTATION from '../../graphql/mutations/createTweet';
+import React from "react";
+import "./CreateTweet.css";
+import classNames from "classnames";
+import { graphql } from "react-apollo";
+import CREATE_TWEET_MUTATION from "../../graphql/mutations/createTweet";
 
 class CreateTweet extends React.Component {
   state = {
-    text: '',
+    text: "",
     onFocus: false,
-    loading: false,
+    loading: false
   };
 
   onChange = e => {
@@ -24,7 +24,7 @@ class CreateTweet extends React.Component {
   };
 
   onBlur = e => {
-    if (e.target.value === '') this.setState({ onFocus: false });
+    if (e.target.value === "") this.setState({ onFocus: false });
   };
 
   onTweet = async () => {
@@ -35,8 +35,8 @@ class CreateTweet extends React.Component {
     try {
       const { data } = await this.props.mutate({
         variables: {
-          text,
-        },
+          text
+        }
       });
 
       this.setState({ loading: false });
@@ -49,7 +49,7 @@ class CreateTweet extends React.Component {
   render() {
     const charClass = classNames({
       counter: true,
-      redtext: this.state.text.length > 140,
+      redtext: this.state.text.length > 140
     });
 
     const buttonClass = classNames({
@@ -57,15 +57,17 @@ class CreateTweet extends React.Component {
       small: true,
       button: true,
       blue: true,
-      disabled: this.state.text.length > 140 || this.state.text.length === 0,
+      disabled: this.state.text.length > 140 || this.state.text.length === 0
     });
+
+    const { logo } = this.props;
 
     if (!this.state.onFocus)
       return (
         <div>
           <div className="create-tweet-container small">
             <div className="logo-text-container small">
-              <img className="avatar32" alt="Torres" src={this.props.logo} />
+              <img className="avatar32" alt="Torres" src={logo} />
               <textarea
                 className="twitter-textarea small"
                 cols="60"

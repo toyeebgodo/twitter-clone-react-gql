@@ -6,10 +6,12 @@ import UserInfo from '../UserStats/UserStats';
 import logo from '../../assets/logo.jpg';
 import banner from '../../assets/banner.jpg';
 import './Dashboard.css';
-import { graphql } from 'react-apollo';
+import { graphql, compose } from 'react-apollo';
+import { connect } from 'react-redux'
 import GET_TWEETS_QUERY from '../../graphql/queries/getTweets';
 
 class Dashboard extends Component {
+
   render() {
     const { data, loading } = this.props;
 

@@ -18,6 +18,7 @@ export const ActionItem = styled.div`
   &:hover {
     fill: #1da1f2;
   }
+
   svg {
     width: 22px;
     height: 22px;

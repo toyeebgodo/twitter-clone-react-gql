@@ -22,17 +22,16 @@ class TweetFeed extends React.Component {
             <span className="loading-text">A carregar...</span>{' '}
           </div>
         ) : (
-          data.getTweets.map(tweet => {
-            console.log(tweet.createdAt);
+            data.getTweets.map(({user: { avatar, fullName, username}, text, createdAt, _id }) => {
 
             return (
               <TweetCard
-                avatar={tweet.user.avatar}
-                fullname={tweet.user.fullName}
-                username={'@' + tweet.user.username}
-                text={tweet.text}
-                time={moment(tweet.createdAt).fromNow()}
-                key={tweet._id}
+                avatar={avatar}
+                fullname={fullName}
+                username={'@' + username}
+                text={text}
+                time={moment(createdAt).fromNow()}
+                key={_id}
               />
             );
           })
