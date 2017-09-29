@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
-import './Auth.css';
+import React, { Component } from "react";
+import "./Auth.css";
 import {
   Background,
   Container,
   FormContainer,
   Title,
   Field,
-  Navbar,
-} from './Shared';
-import { Link, Redirect } from 'react-router-dom';
-import { graphql, compose } from 'react-apollo';
-import SIGNUP_MUTATION from '../../graphql/mutations/signup';
-import { connect } from 'react-redux';
-import { login } from '../../actions/users';
+  Navbar
+} from "./Shared";
+import { Link, Redirect } from "react-router-dom";
+import { graphql, compose } from "react-apollo";
+import SIGNUP_MUTATION from "../../graphql/mutations/signup";
+import { connect } from "react-redux";
+import { login } from "../../actions/users";
 
 class SignupPage extends Component {
   state = {
-    fullName: '',
-    email: '',
-    username: '',
-    password: '',
+    fullName: "",
+    email: "",
+    username: "",
+    password: "",
     loading: false,
-    redirect: false,
+    redirect: false
   };
 
   onChange = e => {
@@ -34,7 +34,7 @@ class SignupPage extends Component {
     this.setState({ loading: true });
 
     const { email, password, username, fullName } = this.state;
-    const avatar = 'https://i.imgur.com/xUMbFdY.jpg';
+    const avatar = "https://i.imgur.com/TnKzsGu.jpg";
 
     try {
       const { data } = await this.props.mutate({
@@ -43,12 +43,12 @@ class SignupPage extends Component {
           username,
           password,
           fullName,
-          avatar,
-        },
+          avatar
+        }
       });
-      console.log('@signup/data', data)
-      let { token } = data.signup
-      localStorage.setItem('token', token);
+      console.log("@signup/data", data);
+      let { token } = data.signup;
+      localStorage.setItem("token", token);
       this.props.login();
 
       this.setState({ loading: false, redirect: true });
@@ -117,7 +117,7 @@ class SignupPage extends Component {
 
                 <div className="form-helper">
                   <p>
-                    Já tem conta no Twitter?{' '}
+                    Já tem conta no Twitter?{" "}
                     <Link to="/login"> Entre agora »</Link>
                   </p>
                 </div>
@@ -132,5 +132,5 @@ class SignupPage extends Component {
 }
 
 export default compose(graphql(SIGNUP_MUTATION), connect(undefined, { login }))(
-  SignupPage,
+  SignupPage
 );

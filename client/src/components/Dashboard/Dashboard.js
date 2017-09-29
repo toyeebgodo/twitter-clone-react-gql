@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
-import Navbar from '../Navbar/Navbar';
-import CreateTweet from '../CreateTweet/CreateTweet';
-import TweetFeed from '../TweetFeed/TweetFeed';
-import UserInfo from '../UserStats/UserStats';
-import logo from '../../assets/logo.jpg';
-import banner from '../../assets/banner.jpg';
-import './Dashboard.css';
-import { graphql, compose } from 'react-apollo';
-import { connect } from 'react-redux'
-import GET_TWEETS_QUERY from '../../graphql/queries/getTweets';
+import React, { Component } from "react";
+import Navbar from "./Navbar/Navbar";
+import CreateTweet from "./CreateTweet/CreateTweet";
+import TweetFeed from "./TweetFeed/TweetFeed";
+import UserInfo from "./UserStats/UserStats";
+import logo from "../../assets/logo.jpg";
+import banner from "../../assets/banner.jpg";
+import "./Dashboard.css";
+import { graphql } from "react-apollo";
+import GET_TWEETS_QUERY from "../../graphql/queries/getTweets";
 
 class Dashboard extends Component {
-
   render() {
     const { data, loading } = this.props;
 
@@ -34,7 +32,7 @@ class Dashboard extends Component {
           <div className="right-block">
             <h3>Quem seguir</h3>
             <span className="right-block-links">
-              {' '}
+              {" "}
               · <a href>Atualizar</a> · <a href>Ver todos</a>
             </span>
           </div>

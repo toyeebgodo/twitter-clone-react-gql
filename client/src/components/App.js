@@ -4,10 +4,9 @@ import Dashboard from "./Dashboard/Dashboard";
 import SignupPage from "./Auth/SignupPage";
 import LoginPage from "./Auth/LoginPage";
 import PrivateRoute from "./utils/PrivateRoute";
+import NotFound from "./utils/NotFound";
 
 import "./App.css";
-
-import NotFound from "./Auth/NotFound";
 
 /*
   Me query to see if user is authenticated

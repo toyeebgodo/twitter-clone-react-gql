@@ -2,7 +2,7 @@ import React from "react";
 import "./CreateTweet.css";
 import classNames from "classnames";
 import { graphql } from "react-apollo";
-import CREATE_TWEET_MUTATION from "../../graphql/mutations/createTweet";
+import CREATE_TWEET_MUTATION from "../../../graphql/mutations/createTweet";
 
 class CreateTweet extends React.Component {
   state = {
@@ -33,6 +33,7 @@ class CreateTweet extends React.Component {
     const { text } = this.state;
 
     try {
+      // TODO: Implement Optimistic UI, (after tweet created don't refresh page, just change store state)
       const { data } = await this.props.mutate({
         variables: {
           text

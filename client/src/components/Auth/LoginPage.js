@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import './Auth.css';
+import React, { Component } from "react";
+import "./Auth.css";
 import {
   Background,
   Container,
   FormContainer,
   Title,
   Field,
-  Navbar,
-} from './Shared';
-import { Link, Redirect } from 'react-router-dom';
-import { graphql, compose } from 'react-apollo';
-import LOGIN_MUTATION from '../../graphql/mutations/login';
-import { connect } from 'react-redux';
-import { login } from '../../actions/users';
+  Navbar
+} from "./Shared";
+import { Link, Redirect } from "react-router-dom";
+import { graphql, compose } from "react-apollo";
+import LOGIN_MUTATION from "../../graphql/mutations/login";
+import { connect } from "react-redux";
+import { login } from "../../actions/users";
 
 class LoginPage extends Component {
   state = {
-    email: '',
-    password: '',
+    email: "",
+    password: "",
     loading: false,
-    redirect: false,
+    redirect: false
   };
 
   onChange = e => {
@@ -37,10 +37,10 @@ class LoginPage extends Component {
       const { data } = await this.props.mutate({
         variables: {
           email,
-          password,
-        },
+          password
+        }
       });
-      localStorage.setItem('token', data.login.token);
+      localStorage.setItem("token", data.login.token);
 
       this.props.login();
       this.setState({ loading: false, redirect: true });
@@ -103,5 +103,5 @@ class LoginPage extends Component {
 }
 
 export default compose(graphql(LOGIN_MUTATION), connect(undefined, { login }))(
-  LoginPage,
+  LoginPage
 );

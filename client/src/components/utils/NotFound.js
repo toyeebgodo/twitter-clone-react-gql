@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import './Auth.css';
-import { Navbar } from '../Navbar/Navbar';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import "./NotFound.css";
+import { Navbar } from "../Dashboard/Navbar/Navbar";
+import { Link } from "react-router-dom";
 
 class NotFound extends Component {
   render() {
@@ -14,7 +14,7 @@ class NotFound extends Component {
           </h1>
           <p className="notfound-description">
             A ligação que seguiste pode estar a funcionar incorretamente ou a
-            página pode ter sido eliminada.{' '}
+            página pode ter sido eliminada.{" "}
             <Link to="/">Regressa ao Twitter.</Link>
           </p>
         </div>

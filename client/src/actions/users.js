@@ -1,22 +1,22 @@
 export const login = () => {
   return {
-    type: 'LOGIN',
+    type: 'LOGIN'
   };
 };
 
 export const getUserInfo = info => {
   return {
-    type: 'GET_USER_INFO',
-    info,
+    type: "GET_USER_INFO",
+    info
   };
 };
 
 export const logout = () => {
   return async dispatch => {
     try {
-      localStorage.removeItem('token');
+      localStorage.removeItem("token");
       return dispatch({
-        type: 'LOGOUT',
+        type: 'LOGOUT'
       });
     } catch (error) {
       throw error;
